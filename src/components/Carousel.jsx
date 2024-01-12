@@ -46,7 +46,7 @@ const Carousel = ({ data, loading, endPoint, title }) => {
                 <div>
                     {title && <div className='text-white text-2xl font-bold mb-5'>{title}</div>}
                     <div className='flex justify-between relative items-center'>
-                        <div className='absolute bg-[linear-gradient(88deg,_#050505_0.62%,rgba(15,16,20,0)_99.33%)] cursor-pointer h-[292px] w-[60px] rounded-l-lg z-[2] top-5'
+                        <div className='absolute max-[1100px]:hidden bg-[linear-gradient(88deg,_#050505_0.62%,rgba(15,16,20,0)_99.33%)] cursor-pointer h-[292px] w-[60px] rounded-l-lg z-[2] top-5'
                             onClick={() => navigation('right')}
                         >
                             <IoIosArrowBack
@@ -85,7 +85,7 @@ const Carousel = ({ data, loading, endPoint, title }) => {
                                 })}
                             </div>
                         }
-                        <div className='absolute bg-[linear-gradient(269.25deg,#050505_0.62%,rgba(15,16,20,0)_99.33%)] cursor-pointer h-[292px] w-[60px] rounded-l-lg z-[2] top-5 right-0'
+                        <div className='absolute max-[1100px]:hidden bg-[linear-gradient(269.25deg,#050505_0.62%,rgba(15,16,20,0)_99.33%)] cursor-pointer h-[292px] w-[60px] rounded-l-lg z-[2] top-5 right-0'
                             onClick={() => navigation('left')}
                         >
                             <IoIosArrowForward
