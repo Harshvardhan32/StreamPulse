@@ -3,7 +3,12 @@ import { useEffect, useState } from 'react';
 import useFetch from '../hooks/useFetch';
 import { useSelector } from 'react-redux';
 import Img from '../components/LazyLoad/Img';
-
+import { Link } from 'react-router-dom';
+import { FaPlus } from "react-icons/fa6";
+import Genres from './Genres';
+import CircleRating from './CircleRating';
+import ReactStars from 'react-stars';
+import dayjs from "dayjs";
 
 const HeroBanner = () => {
 
@@ -19,14 +24,9 @@ const HeroBanner = () => {
     return (
         <div>
             {!loading &&
-                <div>
-                    <Img src={banner} />
-                    {/* <span className='max-w-300px text-gray-800 text-4xl text-center absolute right-[30%] top-64'>
-                            Millions of movies, TV shows <br /> and people to discover
-                        </span> */}
-                </div>
+                <Img src={banner} />
             }
-        </div>
+        </div >
     );
 };
 

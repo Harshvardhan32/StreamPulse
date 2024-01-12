@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from 'react-icons/bs';
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Img from './LazyLoad/Img';
 import PosterFallBack from '../Image/no-poster.png';
 import dayjs from 'dayjs';
@@ -42,15 +42,18 @@ const Carousel = ({ data, loading, endPoint, title }) => {
 
     return (
         <div className='flex flex-col gap-y-5'>
-            {data &&
+            {!loading ?
                 <div>
                     {title && <div className='text-white text-2xl font-bold mb-5'>{title}</div>}
                     <div className='flex justify-between relative items-center'>
-                        <BsFillArrowLeftCircleFill
+                        <div className='absolute bg-[linear-gradient(88deg,_#050505_0.62%,rgba(15,16,20,0)_99.33%)] cursor-pointer h-[292px] w-[60px] rounded-l-lg z-[2] top-5'
                             onClick={() => navigation('right')}
-                            className={`${data?.length > 6 ? 'block' : 'hidden'} text-gray-500 text-2xl -translate-y-12 cursor-pointer absolute left-6 max-[1100px]:hidden z-10`}
-                        />
-                        {!loading ?
+                        >
+                            <IoIosArrowBack
+                                className={`${data?.length > 6 ? 'block' : 'hidden'} absolute text-white text-3xl top-[140px] left-2 max-[1100px]:hidden z-10`}
+                            />
+                        </div>
+                        {!loading &&
                             <div className="flex gap-x-3 overflow-x-scroll scroll-smooth overflow-hidden py-5" ref={carouselContainer}>
                                 {data?.map((item) => {
                                     const posterUrl = item?.poster_path ?
@@ -80,21 +83,25 @@ const Carousel = ({ data, loading, endPoint, title }) => {
                                             </div>
                                         </div>);
                                 })}
-                            </div> :
-                            <div>
-                                {skItem()}
-                                {skItem()}
-                                {skItem()}
-                                {skItem()}
-                                {skItem()}
                             </div>
                         }
-                        <BsFillArrowRightCircleFill
+                        <div className='absolute bg-[linear-gradient(269.25deg,#050505_0.62%,rgba(15,16,20,0)_99.33%)] cursor-pointer h-[292px] w-[60px] rounded-l-lg z-[2] top-5 right-0'
                             onClick={() => navigation('left')}
-                            className={`${data?.length > 6 ? 'block' : 'hidden'} text-gray-500 text-2xl cursor-pointer -translate-y-12 cursor-pointe absolute right-6 max-[1100px]:hidden`}
-                        />
+                        >
+                            <IoIosArrowForward
+                                className={`${data?.length > 6 ? 'block' : 'hidden'} text-white text-3xl cursor-pointer top-[140px] cursor-pointe absolute right-6 max-[1100px]:hidden`}
+                            />
+                        </div>
 
                     </div>
+                </div>
+                :
+                <div>
+                    {skItem()}
+                    {skItem()}
+                    {skItem()}
+                    {skItem()}
+                    {skItem()}
                 </div>
             }
 

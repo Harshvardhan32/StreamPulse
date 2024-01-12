@@ -9,6 +9,9 @@ import Genres from "./Genres";
 import CircleRating from "./CircleRating";
 import { PlayIcon } from "./PlayIcon";
 import VideoPopup from "./VideoPopup";
+import { IoMdShareAlt } from "react-icons/io";
+import { RiMenuAddFill } from "react-icons/ri";
+import ReactStars from 'react-stars';
 
 const DetailsBanner = ({ video, crew }) => {
 
@@ -32,14 +35,21 @@ const DetailsBanner = ({ video, crew }) => {
 
     const background = url?.backdrop + data?.backdrop_path;
 
-    console.log(background);
+    const copyToClipboard = (text) => {
+        var textField = document.createElement('textarea');
+        textField.innerText = text;
+        document.body.appendChild(textField);
+        textField.select();
+        document.execCommand('copy');
+        textField.remove();
+    };
 
     // style={`background-image:url('${background}')`
 
     return (
         <div>
             {!loading ? (
-                <div className={`h-fit w-full min-[1100px]:p-10 p-2 rounded-lg overflow-hidden`} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 1.5)),url(${background})`}}>
+                <div className={`h-fit w-full min-[1100px]:p-10 p-2 rounded-lg overflow-hidden`} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 1.5)),url(${background})` }}>
                     <div className='flex gap-x-8 max-[1100px]:flex-col max-[1100px]:gap-y-4'>
                         <div className="max-w-[360px] min-w-[300px] max-[1100px]:max-w-[260px] max-[327px]:min-w-[150px]">
                             {data?.poster_path ? (<Img src={url?.backdrop + data?.poster_path} />)
@@ -62,6 +72,7 @@ const DetailsBanner = ({ video, crew }) => {
                                     <CircleRating rating={data?.vote_average?.toFixed(1)} />
                                 </div>
                                 <div className="text-white flex items-center gap-x-[20px] cursor-pointer transition-all duration-500 ease-in-out hover:text-pink-700"
+                                    title='Watch Trailer'
                                     onClick={() => {
                                         setShow(true);
                                         setVideoId(video?.key);
@@ -115,6 +126,7 @@ const DetailsBanner = ({ video, crew }) => {
                                 )}
                             </div>
 
+                            {/* horizonta line */}
                             <div className="w-full h-[.2px] bg-slate-500"></div>
 
                             <div className="flex flex-col gap-y-2">
@@ -132,6 +144,7 @@ const DetailsBanner = ({ video, crew }) => {
                                     </div>
                                 )}
 
+                                {/* horizonta line */}
                                 {director?.length > 0 && (
                                     <div className="w-full h-[.2px] bg-slate-500"></div>
                                 )}
@@ -150,6 +163,7 @@ const DetailsBanner = ({ video, crew }) => {
                                     </div>
                                 )}
 
+                                {/* horizonta line */}
                                 {writer?.length > 0 && (
                                     <div className="w-full h-[.2px] bg-slate-500"></div>
                                 )}
@@ -168,11 +182,31 @@ const DetailsBanner = ({ video, crew }) => {
                                     </div>
                                 )}
 
+                                {/* horizonta line */}
                                 {data?.created_by?.length > 0 && (
                                     <div className="w-full h-[.2px] bg-slate-500"></div>
                                 )}
 
                             </div>
+
+                            <div className="flex flex-row flex-wrap gap-6">
+                                <div className="flex flex-row gap-4 items-center">
+                                    <p className="text-white font-semibold">Rating</p>
+                                    <ReactStars
+                                        count={5}
+                                        size={24}
+                                        value={3}
+                                        edit={false}
+                                        color2={'#ffd700'}
+                                    />
+                                </div>
+                                <IoMdShareAlt className="hover:cursor-pointer" onClick={copyToClipboard(url)} fill="#fff" fontSize={28} title="Copy Link" />
+                                <RiMenuAddFill className="hover:cursor-pointer" fill="#fff" fontSize={28} title="Save" />
+                                {/* <IoMdShareAlt className="hover:cursor-pointer" fill="#fff" fontSize={28} />
+                                <IoMdShareAlt className="hover:cursor-pointer" fill="#fff" fontSize={28} /> */}
+                            </div>
+
+                            <div className="w-full h-[.2px] bg-slate-500"></div>
 
                         </div>
                     </div>

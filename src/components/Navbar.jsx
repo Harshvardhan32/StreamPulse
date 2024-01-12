@@ -50,7 +50,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
         <div className='bg-black py-1 w-full fixed flex z-[100]'>
             <div className='w-11/12 max-w-[1500px] mx-auto flex gap-x-5 justify-between items-center'>
-                <div>
+                <div title='StreamPulse'>
                     <Link to='/'>
                         <img src={Logo} alt="" className='w-[230px]' />
                     </Link>
@@ -58,10 +58,30 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
 
                 <div className='max-[1150px]:hidden'>
                     <div className='text-white flex gap-x-8'>
-                        <p onClick={() => navigationHandler('home')} className='text-lg cursor-pointer font-semibold transition-all duration-200 hover:text-[#E60E83]'>Home</p>
-                        {/* <p onClick={() => navigationHandler('movie')} className='text-lg cursor-pointer font-semibold transition-all duration-200 hover:text-[#E60E83]'>Web Series</p> */}
-                        <p onClick={() => navigationHandler('movie')} className='text-lg cursor-pointer font-semibold transition-all duration-200 hover:text-[#E60E83]'>Movies</p>
-                        <p onClick={() => navigationHandler('tv')} className='text-lg cursor-pointer font-semibold transition-all duration-200 hover:text-[#E60E83]'>TV Shows</p>
+                        <p onClick={() => navigationHandler('home')}
+                            className='text-lg cursor-pointer font-semibold transition-all duration-200 hover:text-[#E60E83]'
+                            title='Home'
+                        >
+                            Home
+                        </p>
+                        {/* <p onClick={() => navigationHandler('movie')} 
+                        className='text-lg cursor-pointer font-semibold transition-all duration-200 hover:text-[#E60E83]'
+                        title='Web Series'
+                        >
+                        Web Series
+                        </p> */}
+                        <p onClick={() => navigationHandler('movie')}
+                            className='text-lg cursor-pointer font-semibold transition-all duration-200 hover:text-[#E60E83]'
+                            title='Movies'
+                        >
+                            Movies
+                        </p>
+                        <p onClick={() => navigationHandler('tv')}
+                            className='text-lg cursor-pointer font-semibold transition-all duration-200 hover:text-[#E60E83]'
+                            title='TV Shows'
+                        >
+                            TV Shows
+                        </p>
                     </div>
                 </div>
 
