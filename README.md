@@ -1,9 +1,9 @@
 # StreamPulse
 Welcome to StreamPulse - your ultimate destination for all things movies! Whether you're a cinephile, casual viewer, or just looking for your next movie night pick, we've got you covered. Dive into a world of cinematic wonders with our extensive collection of movie information, reviews, and more.
 
-## Visit StreamPulse
+// ## Visit StreamPulse
 
-### <a href="https://streampulse.netlify.app/">StreamPulse</a>
+// ### <a href="https://streampulse.netlify.app/">StreamPulse</a>
 
 ## Features
 
