@@ -12,6 +12,7 @@ const Cast = ({ data, loading }) => {
                 <div className="skeleton"></div>
                 <div className="skeleton"></div>
                 <div className="skeleton"></div>
+                <div className="skeleton"></div>
             </div>
         );
     };
