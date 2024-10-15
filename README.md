@@ -12,5 +12,4 @@ Welcome to StreamPulse - your ultimate destination for all things movies! Whethe
 ## Technologies Used
 
 - **Frontend:** React, Redux, Tailwind
-- **Backend:** Node js, Express Js
-- **Database:** MongoDB
+- **Backend:** The Movie Database (TMDB) API
